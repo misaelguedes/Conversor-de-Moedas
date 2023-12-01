@@ -31,6 +31,10 @@ export default function Modal({closeModal, status}) {
         })
     }, [])
 
+    function handleSubmit(e) {
+        e.preventDefault()
+    }
+
     return (
         <div className='modal'>
             <div className='modal-container'>
@@ -38,124 +42,124 @@ export default function Modal({closeModal, status}) {
                     <FiX/>
                 </button>
                 {status === 'realDolar' && (
-                    <div>
+                    <form onSubmit={handleSubmit}>
                         <img className='img' src={realDolar} alt='Real em Dólar'/>
                         <p>R$: <input type='number' placeholder='00,00' required onChange={(res) => setValor(res.target.value)}/>
-                        <button className='calcular' onClick={() => setResultado(valor / dolar)}>Calcular</button></p>
+                        <button type='submit' className='calcular' onClick={() => setResultado(valor / dolar)}>Calcular</button></p>
                         {valor !== '' && !isNaN(resultado) && (
                             <p className='res'>US$: {resultado.toFixed(2)}</p>
                         )}
-                    </div>
+                    </form>
                 )}
                 {status === 'realEuro' && (
-                    <div>
+                    <form onSubmit={handleSubmit}>
                         <img className='img' src={realEuro} alt='Real em Euro'/>
                         <p>R$: <input type='number' placeholder='00,00' required onChange={(res) => setValor(res.target.value)}/>
-                        <button className='calcular' onClick={() => setResultado(valor / euro)}>Calcular</button></p>
+                        <button type='submit' className='calcular' onClick={() => setResultado(valor / euro)}>Calcular</button></p>
                         {valor !== '' && !isNaN(resultado) && (
                             <p className='res'>&euro;: {resultado.toFixed(2)}</p>
                         )}
-                    </div>
+                    </form>
                 )}
                 {status === 'realLibra' && (
-                    <div>
+                    <form onSubmit={handleSubmit}>
                         <img className='img' src={realLibra} alt='Real em Libra'/>
                         <p>R$: <input type='number' placeholder='00,00' required onChange={(res) => setValor(res.target.value)}/>
-                        <button className='calcular' onClick={() => setResultado(valor / libra)}>Calcular</button></p>
+                        <button type='submit' className='calcular' onClick={() => setResultado(valor / libra)}>Calcular</button></p>
                         {valor !== '' && !isNaN(resultado) && (
                             <p className='res'>&pound;: {resultado.toFixed(2)}</p>
                         )}
-                    </div>
+                    </form>
                 )}
                 {status === 'dolarReal' && (
-                    <div>
+                    <form onSubmit={handleSubmit}>
                         <img className='img' src={dolarReal} alt='Dólar em Real'/>
                         <p>US$: <input type='number' placeholder='00,00' required onChange={(res) => setValor(res.target.value)}/>
-                        <button className='calcular' onClick={() => setResultado(valor * dolar)}>Calcular</button></p>
+                        <button type='submit' className='calcular' onClick={() => setResultado(valor * dolar)}>Calcular</button></p>
                         {valor !== '' && !isNaN(resultado) && (
                             <p className='res'>R$: {resultado.toFixed(2).replace('.', ',')}</p>
                         )}
-                    </div>
+                    </form>
                 )}
                 {status === 'dolarEuro' && (
-                    <div>
+                    <form onSubmit={handleSubmit}>
                         <img className='img' src={dolarEuro} alt='Dólar em Euro'/>
                         <p>US$: <input type='number' placeholder='00,00' required onChange={(res) => setValor(res.target.value)}/>
-                        <button className='calcular' onClick={() => setResultado(valor / ((euro - dolar) + 1))}>Calcular</button></p>
+                        <button type='submit' className='calcular' onClick={() => setResultado(valor / ((euro - dolar) + 1))}>Calcular</button></p>
                         {valor !== '' && !isNaN(resultado) && (
                             <p className='res'>&euro;: {resultado.toFixed(2)}</p>
                         )}
-                    </div>
+                    </form>
                 )}
                 {status === 'dolarLibra' && (
-                    <div>
+                    <form onSubmit={handleSubmit}>
                         <img className='img' src={dolarLibra} alt='Dólar em Libra'/>
                         <p>US$: <input type='number' placeholder='00,00' required onChange={(res) => setValor(res.target.value)}/>
-                        <button className='calcular' onClick={() => setResultado(valor / ((libra - dolar) + 1))}>Calcular</button></p>
+                        <button type='submit' className='calcular' onClick={() => setResultado(valor / ((libra - dolar) + 1))}>Calcular</button></p>
                         {valor !== '' && !isNaN(resultado) && (
                             <p className='res'>&pound;: {resultado.toFixed(2)}</p>
                         )}
-                    </div>
+                    </form>
                 )}
                 {status === 'euroReal' && (
-                    <div>
+                    <form onSubmit={handleSubmit}>
                         <img className='img' src={realEuro} alt='Euro em Real'/>
                         <p>&euro;: <input type='number' placeholder='00,00' required onChange={(res) => setValor(res.target.value)}/>
-                        <button className='calcular' onClick={() => setResultado(valor * euro)}>Calcular</button></p>
+                        <button type='submit' className='calcular' onClick={() => setResultado(valor * euro)}>Calcular</button></p>
                         {valor !== '' && !isNaN(resultado) && (
                             <p className='res'>R$: {resultado.toFixed(2).replace('.', ',')}</p>
                         )}
-                    </div>
+                    </form>
                 )}
                 {status === 'euroDolar' && (
-                    <div>
+                    <form onSubmit={handleSubmit}>
                         <img className='img' src={dolarEuro} alt='Euro em Dólar'/>
                         <p>&euro;: <input type='number' placeholder='00,00' required onChange={(res) => setValor(res.target.value)}/>
-                        <button className='calcular' onClick={() => setResultado(valor * ((euro - dolar) + 1))}>Calcular</button></p>
+                        <button type='submit' className='calcular' onClick={() => setResultado(valor * ((euro - dolar) + 1))}>Calcular</button></p>
                         {valor !== '' && !isNaN(resultado) && (
                             <p className='res'>US$: {resultado.toFixed(2)}</p>
                         )}
-                    </div>
+                    </form>
                 )}
                 {status === 'euroLibra' && (
-                    <div>
+                    <form onSubmit={handleSubmit}>
                         <img className='img' src={realLibra} alt='Euro em Libra'/>
                         <p>&euro;: <input type='number' placeholder='00,00' required onChange={(res) => setValor(res.target.value)}/>
-                        <button className='calcular' onClick={() => setResultado(valor / ((libra - euro) + 1))}>Calcular</button></p>
+                        <button type='submit' className='calcular' onClick={() => setResultado(valor / ((libra - euro) + 1))}>Calcular</button></p>
                         {valor !== '' && !isNaN(resultado) && (
                             <p className='res'>&pound;: {resultado.toFixed(2)}</p>
                         )}
-                    </div>
+                    </form>
                 )}
                 {status === 'libraReal' && (
-                    <div>
+                    <form onSubmit={handleSubmit}>
                         <img className='img' src={realLibra} alt='Libra em Real'/>
                         <p>&pound;: <input type='number' placeholder='00,00' required onChange={(res) => setValor(res.target.value)}/>
-                        <button className='calcular' onClick={() => setResultado(valor * libra)}>Calcular</button></p>
+                        <button type='submit' className='calcular' onClick={() => setResultado(valor * libra)}>Calcular</button></p>
                         {valor !== '' && !isNaN(resultado) && (
                             <p className='res'>R$: {resultado.toFixed(2).replace('.', ',')}</p>
                         )}
-                    </div>
+                    </form>
                 )}
                 {status === 'libraDolar' && (
-                    <div>
+                    <form onSubmit={handleSubmit}>
                         <img className='img' src={dolarLibra} alt='Libra em Dólar'/>
                         <p>&pound;: <input type='number' placeholder='00,00' required onChange={(res) => setValor(res.target.value)}/>
-                        <button className='calcular' onClick={() => setResultado(valor * ((libra - dolar) + 1))}>Calcular</button></p>
+                        <button type='submit' className='calcular' onClick={() => setResultado(valor * ((libra - dolar) + 1))}>Calcular</button></p>
                         {valor !== '' && !isNaN(resultado) && (
                             <p className='res'>US$: {resultado.toFixed(2)}</p>
                         )}
-                    </div>
+                    </form>
                 )}
                 {status === 'libraEuro' && (
-                    <div>
+                    <form onSubmit={handleSubmit}>
                         <img className='img' src={realLibra} alt='Libra em Euro'/>
                         <p>&pound;: <input type='number' placeholder='00,00' required onChange={(res) => setValor(res.target.value)}/>
-                        <button className='calcular' onClick={() => setResultado(valor * ((libra - euro) + 1))}>Calcular</button></p>
+                        <button type='submit' className='calcular' onClick={() => setResultado(valor * ((libra - euro) + 1))}>Calcular</button></p>
                         {valor !== '' && !isNaN(resultado) && (
                             <p className='res'>&euro;: {resultado.toFixed(2)}</p>
                         )}
-                    </div>
+                    </form>
                 )}
             </div>
         </div>
