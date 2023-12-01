@@ -1,0 +1,89 @@
+@keyframes entering {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.815);
+    z-index: 1000;
+}
+
+.modal-container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    max-width: 40%;
+    top: 15%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 4em 2em;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    animation: entering 0.5s ease-in-out;
+}
+
+.modal-container input {
+    padding: 5px;
+    width: 20%;
+}
+
+.close {
+    position: absolute;
+    display: flex;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 0, 0, 0.479);
+    border: 8px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.close:hover {
+    background-color: red;
+}
+
+.res {
+    font-weight: bolder;
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.calcular {
+    width: 75px;
+    padding: 5px;
+    border-radius: 15px;
+    margin-left: 10px;
+}
+
+.calcular:hover {
+    cursor: pointer;
+}
+
+.img {
+    margin-top: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .modal-container {
+        max-width: 60%;
+    }
+
+    .img {
+        max-width: 80%;
+    }
+}

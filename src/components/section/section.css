@@ -15,7 +15,7 @@ section > p {
 }
 
 section > button {
-    background-color: white;
+    background-color: rgb(241, 241, 241);
     color: black;
     font-weight: bolder;
     font-size: 1em;
